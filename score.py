@@ -6,10 +6,10 @@ from datetime import datetime
 import os
 from utils import send_discord_message, format_score_message
 
-CRICBUZZ_URL = "https://www.cricbuzz.com/cricket-match/live-scores"
 DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1341692740915691520/Wpklknn6bDciBxqyBjyKy1Qn9IlNGEaDJALHnhFqMAKNSLPXxKb10zwwuJrCLdngCa4H"
 FETCH_INTERVAL = 5 
 MAX_RETRIES = 3
+
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 }
@@ -17,7 +17,7 @@ HEADERS = {
 def get_live_matches():
     try:
         print("Fetching live matches from Cricbuzz...")
-        response = requests.get(CRICBUZZ_URL, headers=HEADERS)
+        response = requests.get("https://www.cricbuzz.com/cricket-match/live-scores", headers=HEADERS)
         response.raise_for_status()
         print(f"Response status code: {response.status_code}")
 
